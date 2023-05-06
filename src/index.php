@@ -1,0 +1,4 @@
+<?php
+
+// Run install script
+

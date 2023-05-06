@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "classmap": [
+            "src/Classes",
+            "src/Exceptions"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "10"
+    }
+}
