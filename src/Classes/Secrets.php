@@ -5,12 +5,12 @@ namespace Classes;
 class Secrets {
 
     // The cached contents of the secrets file.
-    private static Array $jsonContents;
+    private static array $jsonContents;
 
     // Allows us to run unit tests with a base example file.
     public static bool $useExampleFile;
 
-    public static function get(String $secret): ?String {
+    public static function get(string $secret): ?string {
         if (empty(self::$jsonContents)) {
             $filename = 'secrets.json';
             if (self::$useExampleFile) {
