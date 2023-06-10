@@ -8,7 +8,7 @@ class Secrets {
     private static array $jsonContents;
 
     // Allows us to run unit tests with a base example file.
-    public static bool $useExampleFile;
+    public static bool $useExampleFile = FALSE;
 
     public static function get(string $secret): ?string {
         if (empty(self::$jsonContents)) {
@@ -21,10 +21,12 @@ class Secrets {
             $filename = './' . $filename;
             $backupFilename = './.' . $filename;
 
-            $json = file_get_contents($filename);
+
+            $json = @file_get_contents($filename);
             if ($json === FALSE) {
                 $json = file_get_contents($backupFilename);
             }
+
             Secrets::$jsonContents = json_decode($json, TRUE);
         }
 
