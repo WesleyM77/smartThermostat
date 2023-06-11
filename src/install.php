@@ -18,5 +18,10 @@ try {
     die();
 }
 // Check that all tables exist and have the correct schema
+$schema = $conn->query('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA="' . $db . '";' )->fetchAll();
+//echo '<pre>' . var_export($schema, true) . '</pre>';
 
 // If we're missing tables or columns, then reinstall the whole thing, wiping all data without verification.
+$installSQL = file_get_contents('install.sql');
+$conn->exec($installSQL);
+echo 'Installed DB';

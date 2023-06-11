@@ -21,12 +21,10 @@ class Secrets {
             $filename = './' . $filename;
             $backupFilename = './.' . $filename;
 
-
             $json = @file_get_contents($filename);
             if ($json === FALSE) {
                 $json = file_get_contents($backupFilename);
             }
-
             Secrets::$jsonContents = json_decode($json, TRUE);
         }
 
